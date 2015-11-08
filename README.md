@@ -22,6 +22,7 @@ to be customized.
 
 
 ```
+library(dplyr)
 Theoph %>% summarize(cmax = max(conc)) %>% view2(name = "Theoph")
 ```
 
