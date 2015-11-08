@@ -15,7 +15,12 @@ ui <- function(input, output, session) {
         tabItems(
             tabItem(tabName = "data",
                     fluidRow(width = 12,
-                             DT::dataTableOutput('run_res'), br()
+                             box(
+                             width = NULL, 
+                             status = "primary",
+                             div(style = 'overflow-x: scroll',
+                                 DT::dataTableOutput('run_res'))
+                             )
                     )
             )
         )
