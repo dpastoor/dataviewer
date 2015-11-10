@@ -23,7 +23,7 @@ server <-function(input, output, session) {
             
             output$run_res <- DT::renderDataTable({
                 dataset()
-            }, options = list(pageLength=25, legnthMenu = c(10, 30, 50, 100)))
+            }, options = list(pageLength=10, lengthMenu = c(10, 30, 50, 100, nrow(dataset()))))
             
             
         }
