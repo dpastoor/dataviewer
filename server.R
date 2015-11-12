@@ -8,10 +8,14 @@ server <-function(input, output, session) {
                                                file.info(list.files(pattern = "*.rds"))
                                            })
             observe({
+                files <- data_available()
+                most_recent <- row.names(files[order(files$mtime, decreasing = TRUE),])[1]
+                print(most_recent)
                 updateSelectInput(
                     session,
                     "selected_data",
-                    choices = row.names(data_available())
+                    choices = row.names(files),
+                    selected = most_recent
                 )
             })
             
