@@ -1,16 +1,17 @@
+library(dplyr)
 server <-function(input, output, session) {
             rescan_datasources <- reactiveTimer(2000, session)
             data_available <- reactivePoll(2000, session, 
                                            checkFunc = function() {
-                                               file.info(list.files(pattern = "*.rds"))
+                                               file.info(list.files(pattern = "*.rds")) %>%
+                                                   select(-atime)
                                            },
                                            valueFunc = function() {
                                                file.info(list.files(pattern = "*.rds"))
                                            })
             observe({
                 files <- data_available()
-                most_recent <- row.names(files[order(files$mtime, decreasing = TRUE),])[1]
-                print(most_recent)
+                most_recent <- row.names(files[order(files$mtime, decreasing = TRUE),])[1]  
                 updateSelectInput(
                     session,
                     "selected_data",
