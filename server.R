@@ -1,6 +1,5 @@
 library(dplyr)
 server <-function(input, output, session) {
-            rescan_datasources <- reactiveTimer(2000, session)
             data_available <- reactivePoll(2000, session, 
                                            checkFunc = function() {
                                                file.info(list.files(pattern = "*.rds")) %>%
