@@ -18,8 +18,11 @@ server <-function(input, output, session) {
                     selected = most_recent
                 )
             })
-            
-            
+            observe({
+                if (input$delete_rds) {
+                        file.remove(list.files(pattern = "*.rds"))
+                }
+            })
         
             dataset <- reactive({
                readRDS(input$selected_data)

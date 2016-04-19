@@ -8,7 +8,8 @@ ui <- function(input, output, session) {
                      # Input directly under menuItem
                      selectInput("selected_data", "Select Data",
                                  choices = NULL)
-            )
+            ),
+            actionButton("delete_rds", label = "Clear Datasets")
         )
     )
     body <- dashboardBody(
