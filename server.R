@@ -25,6 +25,7 @@ server <-function(input, output, session) {
             })
         
             dataset <- reactive({
+                input$refresh
                readRDS(input$selected_data)
             })
             

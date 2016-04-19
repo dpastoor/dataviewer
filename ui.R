@@ -9,6 +9,9 @@ ui <- function(input, output, session) {
                      selectInput("selected_data", "Select Data",
                                  choices = NULL)
             ),
+            
+            actionButton("refresh", label = "Refresh Datasets"),
+            br(),
             actionButton("delete_rds", label = "Clear Datasets")
         )
     )
