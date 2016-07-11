@@ -1,12 +1,19 @@
 # ui elements for shiny
 ui <- function(input, output, session) {
+    library(shiny)
     library(shinydashboard)
     sidebar <- dashboardSidebar(
         sidebarMenu(
+            checkboxInput("show_second_table", "show second table", value = FALSE),
             menuItem("Data", tabName = "data", icon = icon("table"), selected=TRUE),
             menuItem("Select data", icon = icon("bar-chart-o"), tabName = "select_data",
                      # Input directly under menuItem
                      selectInput("selected_data", "Select Data",
+                                 choices = NULL)
+            ),
+            menuItem("Select data", icon = icon("bar-chart-o"), tabName = "select_data2",
+                     # Input directly under menuItem
+                     selectInput("selected_data2", "Select Data",
                                  choices = NULL)
             )
         )

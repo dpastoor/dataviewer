@@ -17,6 +17,12 @@ server <-function(input, output, session) {
                     choices = row.names(files),
                     selected = most_recent
                 )
+                updateSelectInput(
+                    session,
+                    "selected_data2",
+                    choices = row.names(files),
+                    selected = most_recent
+                )
             })
             
             
@@ -24,11 +30,15 @@ server <-function(input, output, session) {
             dataset <- reactive({
                readRDS(input$selected_data)
             })
+             dataset2 <- reactive({
+               readRDS(input$selected_data2)
+            })
             
             output$run_res <- DT::renderDataTable({
                 dataset()
-            }, options = list(pageLength=10, lengthMenu = c(10, 30, 50, 100, nrow(dataset()))))
+            }, options = list(pageLength=10, lengthMenu = c(5, 10, 30, 50, 100, nrow(dataset()))))
             
+           
             
         }
 
