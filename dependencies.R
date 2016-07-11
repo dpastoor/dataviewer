@@ -15,9 +15,11 @@ needed_packages <- required_packages[!available_packages]
 if(length(needed_packages) > 0) {
     message(paste("still need packages:", needed_packages, collapse = ","))
     message("trying to install packages from cran....")
+    install.packages(needed_packages)
+} else {
+    message("all packages already installed!")
 }
 
 
-install.packages(needed_packages)
 
 
