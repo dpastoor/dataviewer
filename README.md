@@ -1,6 +1,20 @@
 README
 =========
 
+The app does not need to be installed as I have not created it as a package (yet). To install, either download this repo, or clone it through git with `git clone https://github.com/dpastoor/dataviewer.git`
+
+The dependencies can be checked by running the code in the `dependencies.R` file. They are
+
+* shiny
+* shinydashboard
+* DT
+
+and can be installed from CRAN.
+
+The app can be run by opening an R/Rstudio session at the dataviewer directory and running `shiny::runApp()` to launch it.
+
+To best leverage the dataviewer app, use the `view_creator` function in PKPDmisc to create a way of passing data to the app.
+
 ```
 view2 <- PKPDmisc::view_creator("<path/to/dataviewer>")
 
