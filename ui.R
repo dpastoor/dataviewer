@@ -17,7 +17,10 @@ ui <- function(input, output, session) {
                      selectInput("selected_data2", "Select 2nd Table Data",
                                  choices = NULL)
             )
-            )
+            ),
+            actionButton("refresh", label = "Refresh Datasets"),
+            br(),
+            actionButton("delete_rds", label = "Clear Datasets")
         )
     )
     body <- dashboardBody(
