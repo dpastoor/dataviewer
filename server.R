@@ -38,6 +38,9 @@ server <-function(input, output, session) {
                 dataset()
             }, options = list(pageLength=10, lengthMenu = c(5, 10, 30, 50, 100, nrow(dataset()))))
             
+            output$run_res2 <- DT::renderDataTable({
+                dataset2()
+            }, options = list(pageLength=10, lengthMenu = c(5, 10, 30, 50, 100, nrow(dataset2()))))
            
             
         }

@@ -28,6 +28,14 @@ ui <- function(input, output, session) {
                              div(style = 'overflow-x: scroll',
                                  DT::dataTableOutput('run_res'))
                              )
+                    ),
+                    fluidRow(width = 12,
+                             box(
+                             width = NULL, 
+                             status = "primary",
+                             div(style = 'overflow-x: scroll',
+                                 DT::dataTableOutput('run_res2'))
+                             )
                     )
             )
         )
