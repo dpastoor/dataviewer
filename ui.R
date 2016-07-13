@@ -11,10 +11,12 @@ ui <- function(input, output, session) {
                      selectInput("selected_data", "Select Data",
                                  choices = NULL)
             ),
-            menuItem("Select data", icon = icon("bar-chart-o"), tabName = "select_data2",
+            conditionalPanel(condition = "input.show_second_table === true",
+            menuItem("Select 2nd table data", icon = icon("bar-chart-o"), tabName = "select_data2",
                      # Input directly under menuItem
-                     selectInput("selected_data2", "Select Data",
+                     selectInput("selected_data2", "Select 2nd Table Data",
                                  choices = NULL)
+            )
             )
         )
     )
@@ -29,14 +31,16 @@ ui <- function(input, output, session) {
                                  DT::dataTableOutput('run_res'))
                              )
                     ),
-                    fluidRow(width = 12,
+                    #condition must be javascript
+                    conditionalPanel(condition = "input.show_second_table === true",
+                        fluidRow(width = 12,
                              box(
                              width = NULL, 
                              status = "primary",
                              div(style = 'overflow-x: scroll',
                                  DT::dataTableOutput('run_res2'))
                              )
-                    )
+                    ))
             )
         )
     )        
